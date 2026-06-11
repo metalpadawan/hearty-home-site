@@ -1,0 +1,47 @@
+# Secrets and local environment
+.env
+.env.*
+!.env.example
+
+# Vercel local project state
+.vercel/
+
+# Dependencies and package-manager caches
+node_modules/
+.npm/
+.pnpm-store/
+
+# Build and generated output
+dist/
+build/
+.next/
+out/
+
+# Generated verification artifacts
+verification/
+
+# Internal planning and launch notes
+hearty_home_website_plan.md
+docs/
+
+# Local-only helper scripts
+tools/
+
+# Logs and diagnostics
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+*.temp
+~$*

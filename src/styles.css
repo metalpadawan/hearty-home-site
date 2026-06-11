@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    font-family: theme('fontFamily.body');
+  }
+
+  input,
+  select,
+  textarea {
+    @apply min-h-12 w-full rounded-2xl border border-teal-900/20 bg-mist px-4 py-3 text-base text-teal-950 outline-none transition placeholder:text-teal-950/40 focus:border-gold-500 focus:bg-white focus:ring-4 focus:ring-gold-500/20;
+  }
+
+  textarea {
+    @apply min-h-36 resize-y;
+  }
+}
+
+@layer components {
+  .skip-link {
+    @apply fixed left-4 top-4 z-50 -translate-y-24 rounded-full bg-gold-500 px-4 py-3 text-sm font-bold text-teal-950 shadow-gold transition focus:translate-y-0 focus:outline-none focus:ring-2 focus:ring-teal-950;
+  }
+
+  .eyebrow {
+    @apply max-w-full break-words text-[0.66rem] font-extrabold uppercase leading-relaxed tracking-[0.16em] text-teal-700 sm:text-xs sm:tracking-[0.24em];
+  }
+
+  .lead {
+    @apply max-w-3xl text-lg leading-8 text-teal-950/70;
+  }
+
+  .section {
+    @apply py-16 sm:py-20 lg:py-24;
+  }
+
+  .page-hero {
+    @apply relative overflow-hidden bg-cream py-16 sm:py-20 lg:py-24;
+  }
+
+  .page-hero::before {
+    content: '';
+    @apply pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_18%,rgba(213,180,106,0.24),transparent_34%),radial-gradient(circle_at_88%_12%,rgba(22,127,143,0.12),transparent_30%)];
+  }
+
+  .page-hero > * {
+    @apply relative;
+  }
+
+  .page-hero h1 {
+    @apply mt-4 max-w-4xl break-words font-display text-3xl font-bold leading-tight text-teal-950 text-balance sm:text-6xl;
+  }
+
+  .page-hero .lead {
+    @apply mt-6;
+  }
+
+  .section-head {
+    @apply grid gap-5 lg:grid-cols-[1fr_0.82fr] lg:items-end;
+  }
+
+  .section-head h2 {
+    @apply mt-3 max-w-3xl font-display text-4xl font-bold leading-tight text-teal-950 text-balance sm:text-5xl;
+  }
+
+  .section-head p {
+    @apply text-base leading-8 text-teal-950/70;
+  }
+
+  .btn-primary {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-gold-500 px-6 py-3 text-sm font-bold text-teal-950 shadow-gold transition hover:-translate-y-0.5 hover:bg-gold-400 focus:outline-none focus:ring-2 focus:ring-gold-100;
+  }
+
+  .btn-ghost {
+    @apply inline-flex min-h-12 items-center justify-center rounded-full border border-white/20 bg-white/10 px-6 py-3 text-sm font-bold text-cream transition hover:-translate-y-0.5 hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-gold-400;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 1ms !important;
+  }
+}
