@@ -133,7 +133,7 @@ async function verifyTurnstile(token, clientIp) {
 }
 
 function buildEmail(data) {
-  const subject = `Hearty Home Solutions enquiry: ${data.service}`;
+  const subject = `Hearty Home Services enquiry: ${data.service}`;
   const text = [
     `Name: ${data.name}`,
     `Email: ${data.email}`,

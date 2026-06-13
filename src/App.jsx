@@ -1,4 +1,5 @@
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
+import { useEffect } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import Header from './components/Header.jsx';
 import Footer from './components/Footer.jsx';
@@ -34,10 +35,39 @@ function AnimatedRoutes() {
   );
 }
 
+function ScrollManager() {
+  const location = useLocation();
+  const reduceMotion = useReducedMotion();
+
+  useEffect(() => {
+    if (location.hash) {
+      const scrollToHash = () => {
+        const target = document.querySelector(location.hash);
+        if (!target) return false;
+        target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+        return true;
+      };
+
+      if (!scrollToHash()) {
+        const timer = window.setTimeout(scrollToHash, 320);
+        return () => window.clearTimeout(timer);
+      }
+
+      return undefined;
+    }
+
+    window.scrollTo({ top: 0, left: 0 });
+    return undefined;
+  }, [location.pathname, location.hash, reduceMotion]);
+
+  return null;
+}
+
 export default function App() {
   return (
     <div className="min-h-dvh overflow-x-hidden bg-mist text-ink antialiased">
       <RouteMetadata />
+      <ScrollManager />
       <Header />
       <AnimatedRoutes />
       <Footer />

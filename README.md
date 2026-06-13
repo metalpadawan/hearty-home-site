@@ -1,6 +1,6 @@
-# Hearty Home Solutions
+# Hearty Home Services
 
-React, Tailwind CSS, and Framer Motion site for Hearty Home Solutions, a flexible support service for homes, people, properties, and businesses.
+React, Tailwind CSS, and Framer Motion site for Hearty Home Services, a growing home services brand beginning with cleaning-led support and expanding into specialist, lifestyle, property, and business services.
 
 ## Stack
 

@@ -1,18 +1,20 @@
 import { Menu, X } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import Container from './Container.jsx';
 import { site } from '../data/site.js';
 
 const navItems = [
   ['Home', '/'],
+  ['Services', '/#services'],
   ['About Us', '/about'],
   ['Contact Us', '/contact'],
 ];
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const onKeyDown = (event) => {
@@ -37,7 +39,7 @@ export default function Header() {
           <span className="font-display text-xl font-bold leading-tight tracking-normal text-teal-950">
             Hearty Home
             <span className="block font-body text-[0.66rem] font-semibold uppercase tracking-[0.2em] text-teal-700">
-              Solutions
+              Services
             </span>
           </span>
         </NavLink>
@@ -60,18 +62,31 @@ export default function Header() {
           }`}
         >
           {navItems.map(([label, path]) => (
-            <NavLink
-              key={path}
-              to={path}
-              onClick={() => setOpen(false)}
-              className={({ isActive }) =>
-                `block rounded-full px-4 py-3 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-gold-500 md:py-2 ${
-                  isActive ? 'bg-teal-950 text-cream' : 'text-teal-950 hover:bg-teal-50'
-                }`
-              }
-            >
-              {label}
-            </NavLink>
+            path.includes('#') ? (
+              <Link
+                key={path}
+                to={path}
+                onClick={() => setOpen(false)}
+                className={`block rounded-full px-4 py-3 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-gold-500 md:py-2 ${
+                  location.pathname === '/' && location.hash === '#services' ? 'bg-teal-950 text-cream' : 'text-teal-950 hover:bg-teal-50'
+                }`}
+              >
+                {label}
+              </Link>
+            ) : (
+              <NavLink
+                key={path}
+                to={path}
+                onClick={() => setOpen(false)}
+                className={({ isActive }) =>
+                  `block rounded-full px-4 py-3 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-gold-500 md:py-2 ${
+                    isActive && !(location.hash === '#services' && path === '/') ? 'bg-teal-950 text-cream' : 'text-teal-950 hover:bg-teal-50'
+                  }`
+                }
+              >
+                {label}
+              </NavLink>
+            )
           ))}
           <NavLink
             className="mt-3 inline-flex w-full items-center justify-center rounded-full bg-gold-500 px-5 py-3 text-sm font-bold text-teal-950 shadow-gold transition hover:-translate-y-0.5 hover:bg-gold-400 focus:outline-none focus:ring-2 focus:ring-teal-700 md:ml-2 md:mt-0 md:w-auto"

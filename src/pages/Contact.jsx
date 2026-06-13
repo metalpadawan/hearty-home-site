@@ -6,7 +6,7 @@ import { site } from '../data/site.js';
 
 export default function Contact() {
   const details = [
-    [UserRound, 'Lead Home Support Specialist', site.founder],
+    [UserRound, 'Service Enquiries', 'Tell us what support you need'],
     [Phone, 'Phone', site.phonePlaceholder],
     [Mail, 'Email', site.emailPlaceholder],
     [MapPin, 'Location', site.area],
@@ -17,9 +17,9 @@ export default function Contact() {
     <>
       <section className="page-hero">
         <Container>
-          <p className="eyebrow">Contact Hearty Home Solutions</p>
+          <p className="eyebrow">Contact Hearty Home Services</p>
           <h1>Have an enquiry?</h1>
-          <p className="lead">Get in touch and we will be happy to help. Please include your service type, location, and any important details about the space.</p>
+          <p className="lead">Get in touch for current services, specialist support, or interest in future service areas. Please include your service type, location, and any important details.</p>
         </Container>
       </section>
 

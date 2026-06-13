@@ -20,6 +20,15 @@ module.exports = {
           400: '#e6ca86',
           100: '#fff3cf',
         },
+        coral: {
+          500: '#ee7a5f',
+          400: '#ff9b7f',
+          100: '#ffe4dc',
+        },
+        sage: {
+          500: '#7aa58c',
+          100: '#e4f0e8',
+        },
         cream: '#fff9eb',
         mist: '#f4faf8',
       },
@@ -27,6 +36,7 @@ module.exports = {
         glow: '0 24px 80px rgba(12, 92, 104, 0.28)',
         soft: '0 18px 50px rgba(16, 35, 35, 0.12)',
         gold: '0 18px 55px rgba(213, 180, 106, 0.28)',
+        coral: '0 18px 55px rgba(238, 122, 95, 0.26)',
       },
       fontFamily: {
         display: ['Playfair Display', 'Georgia', 'serif'],
