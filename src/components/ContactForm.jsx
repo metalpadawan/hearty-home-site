@@ -15,6 +15,7 @@ const initialForm = {
 };
 
 const turnstileSiteKey = import.meta.env.VITE_TURNSTILE_SITE_KEY;
+const REQUEST_TIMEOUT_MS = 12_000;
 
 function validateForm(values) {
   const errors = {};
@@ -76,14 +77,23 @@ export default function ContactForm() {
 
     try {
       setSubmitting(true);
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ ...form, turnstileToken }),
-      });
+      const controller = new AbortController();
+      const timeout = window.setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
+      let response;
+
+      try {
+        response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ ...form, turnstileToken }),
+          signal: controller.signal,
+        });
+      } finally {
+        window.clearTimeout(timeout);
+      }
 
       const result = await response.json().catch(() => ({}));
       if (!response.ok) throw new Error(result.message || 'The enquiry could not be sent.');
@@ -93,7 +103,7 @@ export default function ContactForm() {
       setErrors({});
       window.turnstile?.reset();
     } catch (error) {
-      setStatus({ type: 'error', message: error.message || 'The enquiry service is not available right now.' });
+      setStatus({ type: 'error', message: error.name === 'AbortError' ? 'The enquiry request timed out. Please try again.' : error.message || 'The enquiry service is not available right now.' });
     } finally {
       setSubmitting(false);
     }
@@ -148,6 +158,9 @@ export default function ContactForm() {
           placeholder="Tell us about the space, timing, and anything that needs special attention."
         />
       </Field>
+      <p className="rounded-2xl border border-gold-500/30 bg-gold-100/60 px-4 py-3 text-sm leading-6 text-teal-950">
+        Please do not include medical records, diagnosis details, financial information, identity documents, or highly sensitive personal information in this form.
+      </p>
       {turnstileSiteKey ? (
         <div className="cf-turnstile" data-sitekey={turnstileSiteKey} data-theme="light" aria-label="Spam protection challenge" />
       ) : null}

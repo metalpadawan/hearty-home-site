@@ -9,6 +9,7 @@
 # Dependencies and package-manager caches
 node_modules/
 .npm/
+.npm-cache/
 .pnpm-store/
 
 # Build and generated output
@@ -19,9 +20,13 @@ out/
 
 # Generated verification artifacts
 verification/
+coverage/
+playwright-report/
+test-results/
 
 # Internal planning and launch notes
 hearty_home_website_plan.md
+SITE_AUDIT_AND_NEXT_STEPS.md
 docs/
 
 # Local-only helper scripts

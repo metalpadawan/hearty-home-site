@@ -11,6 +11,7 @@ const statusStyles = {
   error: 'border-red-200 bg-red-50 text-red-800',
   idle: 'border-transparent bg-transparent text-teal-950/70',
 };
+const REQUEST_TIMEOUT_MS = 8_000;
 
 export default function AreaChecker() {
   const [postcode, setPostcode] = useState('');
@@ -30,9 +31,18 @@ export default function AreaChecker() {
     let data = null;
 
     try {
-      const response = await fetch(`/api/area-check?${new URLSearchParams({ postcode: value, service })}`, {
-        headers: { Accept: 'application/json' },
-      });
+      const controller = new AbortController();
+      const timeout = window.setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
+      let response;
+
+      try {
+        response = await fetch(`/api/area-check?${new URLSearchParams({ postcode: value, service })}`, {
+          headers: { Accept: 'application/json' },
+          signal: controller.signal,
+        });
+      } finally {
+        window.clearTimeout(timeout);
+      }
       const isJson = response.headers.get('content-type')?.includes('application/json');
 
       if (isJson) {
@@ -41,7 +51,7 @@ export default function AreaChecker() {
         if (!response.ok) data = null;
       }
     } catch (error) {
-      if (error.message && !error.message.includes('Failed to fetch')) {
+      if (error.name !== 'AbortError' && error.message && !error.message.includes('Failed to fetch')) {
         setResult({ status: 'error', message: error.message });
         setChecking(false);
         return;
@@ -76,7 +86,7 @@ export default function AreaChecker() {
           <h2 className="font-display text-2xl font-bold text-teal-950">Check if we can support your area.</h2>
         </div>
       </div>
-      <div className="relative mt-5 grid gap-3 lg:grid-cols-[1fr_1fr_auto]">
+      <div className="relative mt-5 grid gap-3 xl:grid-cols-[1fr_1fr_auto]">
         <label className="sr-only" htmlFor="area-checker-postcode">
           Postcode or area
         </label>
@@ -95,7 +105,7 @@ export default function AreaChecker() {
             <option key={option}>{option}</option>
           ))}
         </select>
-        <button className="btn-primary" type="submit">
+        <button className="btn-primary w-full xl:w-auto" type="submit">
           {checking ? <Loader2 className="animate-spin" size={18} aria-hidden="true" /> : null}
           {checking ? 'Checking...' : 'Check'}
           {!checking ? <ArrowRight size={18} aria-hidden="true" /> : null}

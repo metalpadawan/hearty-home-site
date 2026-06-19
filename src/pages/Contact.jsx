@@ -2,7 +2,7 @@ import { Instagram, Mail, MapPin, Phone, UserRound } from 'lucide-react';
 import Container from '../components/Container.jsx';
 import ContactForm from '../components/ContactForm.jsx';
 import MotionSection from '../components/MotionSection.jsx';
-import { site } from '../data/site.js';
+import { faqs, site } from '../data/site.js';
 
 export default function Contact() {
   const details = [
@@ -49,6 +49,28 @@ export default function Contact() {
               <ContactForm />
             </div>
           </section>
+        </Container>
+      </MotionSection>
+
+      <MotionSection className="section bg-cream">
+        <Container>
+          <div className="section-head">
+            <div>
+              <p className="eyebrow">Questions</p>
+              <h2>Helpful answers before you send an enquiry.</h2>
+            </div>
+            <p>These answers cover services, hoarding support, area coverage, family or carer involvement, and contact placeholders.</p>
+          </div>
+          <div className="mt-8 grid gap-4 lg:grid-cols-2">
+            {faqs.map(([question, answer]) => (
+              <details className="group rounded-2xl border border-teal-900/10 bg-white p-5 shadow-soft" key={question}>
+                <summary className="cursor-pointer list-none text-base font-bold text-teal-950 group-open:text-teal-700">
+                  {question}
+                </summary>
+                <p className="mt-3 text-sm leading-7 text-teal-950/70">{answer}</p>
+              </details>
+            ))}
+          </div>
         </Container>
       </MotionSection>
     </>

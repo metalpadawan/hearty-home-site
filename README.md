@@ -1,6 +1,6 @@
 # Hearty Home Services
 
-React, Tailwind CSS, and Framer Motion site for Hearty Home Services, a growing home services brand beginning with cleaning-led support and expanding into specialist, lifestyle, property, and business services.
+React, Tailwind CSS, and Framer Motion site for Hearty Home Services, a growing home services brand offering domestic, Airbnb, company, events, end of tenancy, add-on cleaning, and person-centred hoarding specialist support.
 
 ## Stack
 
@@ -10,10 +10,11 @@ React, Tailwind CSS, and Framer Motion site for Hearty Home Services, a growing 
 - Custom Tailwind keyframes for brand motion
 - Framer Motion for page transitions, card reveals, and hero motion
 - Vercel Node serverless function at `/api/contact`
+- Vercel Node serverless function at `/api/area-check`
 
 ## Run Locally
 
-1. Install Node.js 20 or newer.
+1. Install Node.js 22 or newer.
 2. Install dependencies:
 
 ```bash
@@ -29,7 +30,7 @@ npm run dev
 
 5. Open the local URL shown in the terminal, usually `http://localhost:5173`.
 
-The plain Vite dev server is best for layout and animation work. To test the Vercel contact API locally, use:
+The plain Vite dev server is best for layout and animation work. To test the Vercel contact and area-check APIs locally, use:
 
 ```bash
 npm run dev:vercel
@@ -48,6 +49,34 @@ Preview the production build:
 ```bash
 npm run preview
 ```
+
+## Quality Checks
+
+Run the standard local checks:
+
+```bash
+npm run lint
+npm run test:run
+npm run build
+npm audit --package-lock-only
+```
+
+Run coverage:
+
+```bash
+npm run test:coverage
+```
+
+Run the Playwright smoke test. The local config uses installed Microsoft Edge. CI uses Playwright Chromium:
+
+```bash
+npm run build
+npm run test:e2e
+```
+
+If Edge is not available on another local machine, run `npx playwright install` and set `CI=1` before `npm run test:e2e`, or update `playwright.config.js` to use an installed browser.
+
+GitHub Actions runs lint, unit/integration tests, build, and dependency audit on pushes to `main` and pull requests.
 
 ## Vercel Setup
 
@@ -93,6 +122,15 @@ git push
 
 - Framer Motion needs inline style attributes for transform animations.
 - The CSP still blocks inline scripts and frames the site with `frame-ancestors 'none'`.
+
+## Governance Notes
+
+- Privacy page: `/privacy`
+- API contracts: `API_CONTRACTS.md`
+- Architecture notes: `ARCHITECTURE.md`
+- Data retention and deletion starter policy: `DATA_RETENTION_AND_DELETION.md`
+- Disaster recovery starter plan: `DISASTER_RECOVERY.md`
+- The internal audit document `SITE_AUDIT_AND_NEXT_STEPS.md` is intentionally ignored by Git.
 
 ## Animation Notes
 

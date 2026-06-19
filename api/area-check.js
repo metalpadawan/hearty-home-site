@@ -4,6 +4,7 @@ const REVIEW_RADIUS_MILES = 32;
 const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
 const RATE_LIMIT_MAX = 30;
 const MAX_RATE_LIMIT_RECORDS = 500;
+const UPSTREAM_TIMEOUT_MS = 8_000;
 const requests = new Map();
 
 const knownAreas = new Map([
@@ -106,6 +107,17 @@ function distanceMiles(from, to) {
   return radiusMiles * 2 * Math.atan2(Math.sqrt(haversine), Math.sqrt(1 - haversine));
 }
 
+async function fetchWithTimeout(url, options = {}, timeoutMs = UPSTREAM_TIMEOUT_MS) {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), timeoutMs);
+
+  try {
+    return await fetch(url, { ...options, signal: controller.signal });
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
 function buildMessage(status, location, service, detail = '') {
   const serviceText = service ? ` for ${service.toLowerCase()}` : '';
 
@@ -125,7 +137,7 @@ function buildMessage(status, location, service, detail = '') {
 }
 
 async function lookupPostcode(postcode) {
-  const response = await fetch(`https://api.postcodes.io/postcodes/${encodeURIComponent(postcode)}`, {
+  const response = await fetchWithTimeout(`https://api.postcodes.io/postcodes/${encodeURIComponent(postcode)}`, {
     headers: { Accept: 'application/json' },
   });
 

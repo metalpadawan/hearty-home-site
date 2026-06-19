@@ -1,4 +1,5 @@
 import Container from './Container.jsx';
+import { Link } from 'react-router-dom';
 import { site } from '../data/site.js';
 
 export default function Footer() {
@@ -21,6 +22,9 @@ export default function Footer() {
         <div>
           <strong className="text-sm uppercase tracking-[0.22em] text-gold-400">Area</strong>
           <p className="mt-3 text-sm text-cream/75">{site.area}</p>
+          <Link className="mt-3 inline-block text-sm font-semibold text-gold-100 underline decoration-gold-400/60 underline-offset-4" to="/privacy">
+            Privacy
+          </Link>
         </div>
       </Container>
     </footer>

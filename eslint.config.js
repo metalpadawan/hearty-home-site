@@ -4,7 +4,7 @@ const reactRefresh = require('eslint-plugin-react-refresh');
 
 module.exports = [
   {
-    ignores: ['dist/**', 'node_modules/**'],
+    ignores: ['coverage/**', 'dist/**', 'node_modules/**', 'playwright-report/**', 'test-results/**'],
   },
   {
     files: ['src/**/*.{js,jsx}'],

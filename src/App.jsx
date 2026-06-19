@@ -7,6 +7,7 @@ import RouteMetadata from './components/RouteMetadata.jsx';
 import Home from './pages/Home.jsx';
 import About from './pages/About.jsx';
 import Contact from './pages/Contact.jsx';
+import Privacy from './pages/Privacy.jsx';
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -27,8 +28,10 @@ function AnimatedRoutes() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/privacy" element={<Privacy />} />
           <Route path="/about.html" element={<About />} />
           <Route path="/contact.html" element={<Contact />} />
+          <Route path="/privacy.html" element={<Privacy />} />
         </Routes>
       </motion.main>
     </AnimatePresence>

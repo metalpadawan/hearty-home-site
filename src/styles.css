@@ -86,6 +86,30 @@
   .glass-panel {
     @apply border border-white/15 bg-[linear-gradient(135deg,rgba(6,44,49,0.94),rgba(15,83,92,0.86))] backdrop-blur-2xl;
   }
+
+  .hero-slide {
+    animation: hero-crossfade 20s ease-in-out infinite;
+    opacity: 0;
+  }
+}
+
+@keyframes hero-crossfade {
+  0%,
+  22% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  27%,
+  95% {
+    opacity: 0;
+    transform: scale(1.025);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -96,5 +120,9 @@
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
     transition-duration: 1ms !important;
+  }
+
+  .hero-slide:first-of-type {
+    opacity: 1;
   }
 }

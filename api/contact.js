@@ -2,7 +2,20 @@ const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
 const RATE_LIMIT_MAX = 5;
 const MAX_BODY_BYTES = 16 * 1024;
 const MAX_RATE_LIMIT_RECORDS = 500;
+const UPSTREAM_TIMEOUT_MS = 10_000;
 const requests = new Map();
+const allowedServices = new Set([
+  'Domestic Cleaning',
+  'Airbnb & Short-Stay Cleaning',
+  'Company Cleaning',
+  'Parties & Events Cleaning',
+  'End of Tenancy Cleaning',
+  'Cleaning Add-ons',
+  'Hoarding Cleaning Specialist Support',
+  'Home Management',
+  'Interior Decor',
+  'General Enquiry',
+]);
 
 function sendJson(res, status, payload) {
   res.statusCode = status;
@@ -88,6 +101,17 @@ function clean(value, maxLength) {
   return String(value || '').trim().slice(0, maxLength);
 }
 
+async function fetchWithTimeout(url, options = {}, timeoutMs = UPSTREAM_TIMEOUT_MS) {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), timeoutMs);
+
+  try {
+    return await fetch(url, { ...options, signal: controller.signal });
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
 function validate(data) {
   const cleaned = {
     name: clean(data.name, 120),
@@ -104,6 +128,7 @@ function validate(data) {
   if (!cleaned.name) return { ok: false, message: 'Please enter your full name.' };
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cleaned.email)) return { ok: false, message: 'Please enter a valid email address.' };
   if (!cleaned.service) return { ok: false, message: 'Please choose a service.' };
+  if (!allowedServices.has(cleaned.service)) return { ok: false, message: 'Please choose a valid service.' };
   if (!cleaned.message) return { ok: false, message: 'Please include a short message.' };
 
   return { ok: true, data: cleaned };
@@ -114,22 +139,26 @@ async function verifyTurnstile(token, clientIp) {
   if (!secret) return true;
   if (!token) return false;
 
-  const response = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
-    },
-    body: new URLSearchParams({
-      secret,
-      response: token,
-      remoteip: clientIp,
-    }),
-  });
+  try {
+    const response = await fetchWithTimeout('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: new URLSearchParams({
+        secret,
+        response: token,
+        remoteip: clientIp,
+      }),
+    });
 
-  if (!response.ok) return false;
+    if (!response.ok) return false;
 
-  const result = await response.json();
-  return result.success === true;
+    const result = await response.json();
+    return result.success === true;
+  } catch {
+    return false;
+  }
 }
 
 function buildEmail(data) {
@@ -163,7 +192,7 @@ async function sendEmail(data) {
   }
 
   const email = buildEmail(data);
-  const response = await fetch('https://api.resend.com/emails', {
+  const response = await fetchWithTimeout('https://api.resend.com/emails', {
     method: 'POST',
     headers: {
       'Authorization': `Bearer ${apiKey}`,
