@@ -1,0 +1,14 @@
+{
+  "name": "Hearty Home Services",
+  "short_name": "Hearty Home",
+  "icons": [
+    {
+      "src": "/favicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#06383d",
+  "background_color": "#f8f1e3",
+  "display": "standalone"
+}

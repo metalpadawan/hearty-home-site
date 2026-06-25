@@ -63,7 +63,7 @@ export default function Founder() {
               <a className="btn-primary" href={site.linkedinUrl} rel="noreferrer" target="_blank">
                 LinkedIn <Linkedin size={18} aria-hidden="true" />
               </a>
-              <Link className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-teal-900/15 bg-white px-6 py-3 text-sm font-bold text-teal-950 shadow-soft transition hover:-translate-y-0.5 hover:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-500" to="/contact">
+              <Link className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-teal-900/15 bg-white px-6 py-3 text-sm font-bold text-teal-950 shadow-soft transition hover:-translate-y-0.5 hover:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-500" to="/contact#enquiry">
                 Contact Us <ArrowRight size={18} aria-hidden="true" />
               </Link>
             </div>

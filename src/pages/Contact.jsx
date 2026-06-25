@@ -25,7 +25,15 @@ export default function Contact() {
 
       <MotionSection className="section">
         <Container className="grid gap-8 lg:grid-cols-[0.75fr_1.25fr]">
-          <aside className="grid gap-4 self-start" aria-label="Contact details">
+          <section className="scroll-mt-32 rounded-[2rem] bg-white p-6 shadow-soft sm:p-8 lg:order-last" id="enquiry">
+            <p className="eyebrow">Send enquiry</p>
+            <h2 className="mt-3 font-display text-3xl font-bold leading-tight text-teal-950 sm:text-4xl">Send the details.</h2>
+            <div className="mt-8">
+              <ContactForm />
+            </div>
+          </section>
+
+          <aside className="grid gap-4 self-start lg:order-first" aria-label="Contact details">
             {details.map(([Icon, label, value, href]) => (
               <div key={label} className="flex gap-4 rounded-2xl border border-teal-900/10 bg-white p-5 shadow-soft">
                 <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-teal-50 text-teal-800">
@@ -51,14 +59,6 @@ export default function Contact() {
               <p className="mt-3 text-sm leading-6 text-teal-950/60">Scan or tap to open the Hearty Home Services Instagram page.</p>
             </div>
           </aside>
-
-          <section className="scroll-mt-32 rounded-[2rem] bg-white p-6 shadow-soft sm:p-8" id="enquiry">
-            <p className="eyebrow">Send enquiry</p>
-            <h2 className="mt-3 font-display text-3xl font-bold leading-tight text-teal-950 sm:text-4xl">Send the details.</h2>
-            <div className="mt-8">
-              <ContactForm />
-            </div>
-          </section>
         </Container>
       </MotionSection>
 

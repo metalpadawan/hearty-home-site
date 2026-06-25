@@ -95,6 +95,10 @@
     animation: hero-crossfade 20s ease-in-out infinite;
     opacity: 0;
   }
+
+  .hero-slide:first-of-type {
+    opacity: 1;
+  }
 }
 
 @keyframes hero-crossfade {
@@ -126,7 +130,7 @@
     transition-duration: 1ms !important;
   }
 
-  .hero-slide:first-of-type {
-    opacity: 1;
+  .hero-slide:not(:first-of-type) {
+    opacity: 0;
   }
 }

@@ -1,26 +1,31 @@
+import heroCompanyCleaning from '../assets/images/hero-company-cleaning.jpeg';
+import heroEventDecor from '../assets/images/hero-event-decor.jpeg';
+import heroHoardersSupport from '../assets/images/hero-hoarders-support.jpeg';
+import heroSatisfiedClient from '../assets/images/hero-satisfied-client.jpeg';
+
 const showcaseImages = [
   {
     title: 'Team Cleaning',
-    src: '/assets/images/hero-company-cleaning.jpeg',
+    src: heroCompanyCleaning,
     alt: 'Group of professional cleaners working in a modern dining room',
     position: 'center',
   },
   {
-    title: 'Professional Crew',
-    src: '/assets/images/hero-domestic-cleaning.jpeg',
-    alt: 'Three professional cleaners standing with cleaning equipment indoors',
+    title: 'Hoarders Support',
+    src: heroHoardersSupport,
+    alt: 'A calm one-to-one support conversation with notes during a counselling-style session',
     position: 'center',
   },
   {
-    title: 'Home Cleaning Team',
-    src: '/assets/images/hero-interior-workspace.jpeg',
-    alt: 'Cleaning team in uniforms ready to work in a modern home',
+    title: 'Events Decor',
+    src: heroEventDecor,
+    alt: 'Elegant event table decor arranged for a formal celebration',
     position: 'center',
   },
   {
-    title: 'Focused Cleaning',
-    src: '/assets/images/hero-property-care.jpeg',
-    alt: 'Professional cleaners caring for a modern living room',
+    title: 'Satisfied Customer',
+    src: heroSatisfiedClient,
+    alt: 'Smiling customer and professional shaking hands after a successful service',
     position: 'center',
   },
 ];

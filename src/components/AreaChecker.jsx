@@ -115,7 +115,7 @@ export default function AreaChecker() {
         <p className={`rounded-2xl border px-4 py-3 ${statusStyles[result.status] || statusStyles.idle}`} role="status" aria-live="polite">
           {result.message}
         </p>
-        <Link className="font-bold text-teal-800 underline decoration-gold-500/60 underline-offset-4" to="/contact">
+        <Link className="font-bold text-teal-800 underline decoration-gold-500/60 underline-offset-4" to="/contact#enquiry">
           Send full enquiry
         </Link>
       </div>

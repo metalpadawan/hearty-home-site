@@ -9,7 +9,7 @@ const navItems = [
   ['Home', '/'],
   ['Services', '/#services'],
   ['About Us', '/about'],
-  ['Contact Us', '/contact'],
+  ['Contact Us', '/contact#enquiry'],
 ];
 
 export default function Header() {

@@ -1,4 +1,4 @@
-const siteUrl = 'https://heartyhome.co.uk';
+const siteUrl = 'https://www.heartyhome.co.uk';
 const image = `${siteUrl}/assets/images/logo-emblem.png`;
 
 export const defaultMeta = {
