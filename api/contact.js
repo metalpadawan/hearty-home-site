@@ -5,13 +5,8 @@ const MAX_RATE_LIMIT_RECORDS = 500;
 const UPSTREAM_TIMEOUT_MS = 10_000;
 const requests = new Map();
 const allowedServices = new Set([
-  'Domestic Cleaning',
-  'Airbnb & Short-Stay Cleaning',
-  'Company Cleaning',
-  'Parties & Events Cleaning',
-  'End of Tenancy Cleaning',
-  'Cleaning Add-ons',
-  'Hoarding Cleaning Specialist Support',
+  'Cleaning Services',
+  'Hoarders Specialist Support',
   'Home Management',
   'Interior Decor',
   'General Enquiry',

@@ -59,7 +59,7 @@ describe('/api/area-check', () => {
 
   it('accepts known local areas', async () => {
     const response = await runHandler(areaHandler, {
-      url: '/api/area-check?postcode=Chester&service=Domestic%20Cleaning',
+      url: '/api/area-check?postcode=Chester&service=Cleaning%20Services',
       ip: '127.10.0.2',
     });
 
@@ -73,7 +73,7 @@ describe('/api/contact', () => {
     name: 'Test User',
     email: 'test@example.com',
     phone: '+441234567890',
-    service: 'Domestic Cleaning',
+    service: 'Cleaning Services',
     location: 'Chester',
     message: 'Please contact me about a service.',
     company: '',

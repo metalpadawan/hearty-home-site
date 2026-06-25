@@ -19,6 +19,16 @@ export default function ServiceCard({ service, index }) {
       </div>
       <h3 className="relative mt-6 font-display text-2xl font-bold text-teal-950">{service.title}</h3>
       <p className="relative mt-3 text-sm leading-7 text-teal-950/70">{service.copy}</p>
+      {service.items?.length ? (
+        <ul className="relative mt-5 grid gap-2 text-sm leading-6 text-teal-950/75">
+          {service.items.map((item) => (
+            <li className="flex gap-2" key={item}>
+              <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold-500" aria-hidden="true" />
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      ) : null}
     </motion.article>
   );
 }

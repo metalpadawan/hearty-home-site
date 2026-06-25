@@ -12,7 +12,7 @@ export default function RouteMetadata() {
 
   useEffect(() => {
     const meta = getRouteMeta(pathname);
-    const canonicalUrl = new URL(meta.path, 'https://hearty-home-site.vercel.app').toString();
+    const canonicalUrl = new URL(meta.path, 'https://heartyhome.co.uk').toString();
 
     document.title = meta.title;
     setMeta('meta[name="description"]', 'content', meta.description);

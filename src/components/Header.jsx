@@ -27,20 +27,18 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-white/30 bg-cream/90 shadow-sm backdrop-blur-xl">
-      <Container as="nav" className="flex min-h-20 items-center justify-between gap-5" aria-label="Main navigation">
+      <Container as="nav" className="flex min-h-24 items-center justify-between gap-4 py-3 md:min-h-20 md:py-0" aria-label="Main navigation">
         <NavLink className="group flex items-center gap-3" to="/" onClick={() => setOpen(false)} aria-label={`${site.name} home`}>
           <motion.img
             src="/assets/images/logo-emblem.png"
             alt=""
-            className="h-12 w-12 rounded-full object-contain shadow-gold ring-1 ring-gold-400/50"
+            className="h-11 w-11 rounded-full object-contain shadow-gold ring-1 ring-gold-400/50 sm:h-12 sm:w-12"
             whileHover={{ rotate: -4, scale: 1.05 }}
             transition={{ type: 'spring', stiffness: 260, damping: 18 }}
           />
-          <span className="font-display text-xl font-bold leading-tight tracking-normal text-teal-950">
-            Hearty Home
-            <span className="block font-body text-[0.66rem] font-semibold uppercase tracking-[0.2em] text-teal-700">
-              Services
-            </span>
+          <span className="grid max-w-[13.5rem] gap-0.5 sm:max-w-none">
+            <span className="font-display text-lg font-bold leading-none tracking-normal text-teal-950 sm:text-xl">Hearty Home Services</span>
+            <span className="font-body text-[0.66rem] font-semibold leading-snug text-teal-700 sm:text-xs">{site.tagline}</span>
           </span>
         </NavLink>
 
@@ -57,7 +55,7 @@ export default function Header() {
 
         <div
           id="site-menu"
-          className={`absolute left-5 right-5 top-[5.4rem] rounded-2xl border border-teal-900/10 bg-cream p-4 shadow-soft md:static md:flex md:items-center md:gap-2 md:border-0 md:bg-transparent md:p-0 md:shadow-none ${
+          className={`absolute left-5 right-5 top-[6.35rem] rounded-2xl border border-teal-900/10 bg-cream p-4 shadow-soft md:static md:flex md:items-center md:gap-2 md:border-0 md:bg-transparent md:p-0 md:shadow-none ${
             open ? 'block' : 'hidden md:flex'
           }`}
         >

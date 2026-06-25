@@ -1,6 +1,6 @@
 # Hearty Home Services
 
-React, Tailwind CSS, and Framer Motion site for Hearty Home Services, a growing home services brand offering domestic, Airbnb, company, events, end of tenancy, add-on cleaning, and person-centred hoarding specialist support.
+React, Tailwind CSS, and Framer Motion site for Hearty Home Services, a growing home services brand offering cleaning services, person-centred hoarders specialist support, home management, and future interior decor support.
 
 ## Stack
 

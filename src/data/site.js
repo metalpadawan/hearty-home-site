@@ -5,58 +5,28 @@ export const site = {
   area: 'Chester & surrounding areas',
   emailPlaceholder: 'Business email coming soon',
   phonePlaceholder: 'Phone coming soon',
-  instagramPlaceholder: 'Instagram coming soon',
+  instagramHandle: '@heartyhomeservices',
+  instagramUrl: 'https://www.instagram.com/heartyhomeservices?igsh=MWc4aDE5Y3Z6emFwaQ%3D%3D&utm_source=qr',
+  linkedinLabel: 'Founder LinkedIn',
+  linkedinUrl: 'https://www.linkedin.com/in/okosun-i-066213267?utm_source=share_via&utm_content=profile&utm_medium=member_ios',
+  instagramQr: '/assets/images/instagram-qr.jpeg',
 };
 
 export const services = [
   {
-    title: 'Domestic Cleaning',
-    tag: 'Home cleaning',
+    title: 'Cleaning Services',
+    tag: 'Multiple spaces',
     kind: 'cleaning',
     status: 'Available now',
-    copy: 'Regular or one-off cleaning for private homes, covering everyday living spaces, kitchens, bathrooms, bedrooms, surfaces, floors, and general household upkeep.',
+    copy: 'One flexible cleaning service covering the spaces and situations clients commonly need support with, from regular home upkeep to property resets and event clean-up.',
+    items: ['Domestic homes', 'Airbnb and short-stay turnovers', 'Company offices and workspaces', 'Parties and events', 'End of tenancy cleaning', 'Add-ons such as appliances, cupboards, interior windows, and focused room resets'],
   },
   {
-    title: 'Airbnb & Short-Stay Cleaning',
-    tag: 'Guest turnover',
-    kind: 'cleaning',
-    status: 'Available now',
-    copy: 'Turnover cleaning for Airbnb and short-stay properties so the space is fresh, reset, and guest-ready between bookings.',
-  },
-  {
-    title: 'Company Cleaning',
-    tag: 'Business spaces',
-    kind: 'business',
-    status: 'Available now',
-    copy: 'Cleaning for offices, workspaces, shared areas, and customer-facing environments that need consistent standards and a professional finish.',
-  },
-  {
-    title: 'Parties & Events Cleaning',
-    tag: 'Before and after',
-    kind: 'event',
-    status: 'Available now',
-    copy: 'Cleaning support before or after gatherings, parties, and events, helping the space feel prepared beforehand or restored afterwards.',
-  },
-  {
-    title: 'End of Tenancy Cleaning',
-    tag: 'Move-out cleaning',
-    kind: 'property',
-    status: 'Available now',
-    copy: 'Detailed cleaning for rented homes at the end of a tenancy, focused on presenting the property clearly for landlords, agents, or new occupants.',
-  },
-  {
-    title: 'Cleaning Add-ons',
-    tag: 'Extra tasks',
-    kind: 'cleaning',
-    status: 'Optional extras',
-    copy: 'Additional cleaning tasks that can be requested with a main service, such as inside appliances, interior windows, cupboards, detailed room resets, or focused extras.',
-  },
-  {
-    title: 'Hoarding Cleaning Specialist Support',
+    title: 'Hoarders Specialist Support',
     tag: 'Person-centred',
     kind: 'specialist',
     status: 'Specialist focus',
-    copy: 'Discreet support for people affected by hoarding. The care is for the person first: patient conversation, consent, choices, de-escalation, and respectful cleaning when they are ready.',
+    copy: 'Discreet support for hoarders and people who find it difficult to let items go. The care is for the person first: patient conversation, consent, choices, de-escalation, and respectful cleaning when they are ready.',
   },
   {
     title: 'Home Management',
@@ -84,13 +54,8 @@ export const values = [
 ];
 
 export const serviceOptions = [
-  'Domestic Cleaning',
-  'Airbnb & Short-Stay Cleaning',
-  'Company Cleaning',
-  'Parties & Events Cleaning',
-  'End of Tenancy Cleaning',
-  'Cleaning Add-ons',
-  'Hoarding Cleaning Specialist Support',
+  'Cleaning Services',
+  'Hoarders Specialist Support',
   'Home Management',
   'Interior Decor',
   'General Enquiry',
@@ -105,16 +70,16 @@ export const howItWorks = [
 
 export const trustPoints = [
   ['Privacy first', 'Enquiries are treated discreetly, especially where the situation is personal or sensitive.'],
-  ['No judgement', 'For hoarding situations, the focus is on the person first, then careful progress with the space.'],
+  ['No judgement', 'For situations involving hoarders, the focus is on the person first, then careful progress with the space.'],
   ['Clear communication', 'We explain what is happening, listen carefully, and avoid rushing difficult decisions.'],
   ['Local and accountable', 'Built for Chester and surrounding areas with direct, personal communication.'],
 ];
 
 export const faqs = [
   ['What cleaning services can I ask for?', 'You can ask about domestic cleaning, Airbnb or short-stay turnovers, company cleaning, parties and events, end of tenancy cleaning, and cleaning add-ons.'],
-  ['Is Hearty Home only a cleaning service?', 'Cleaning is the starting service, but the brand is being built to include specialist hoarding support, home management, interior decor, and other home service areas.'],
+  ['Is Hearty Home only a cleaning service?', 'Cleaning is the starting service, but the brand is being built to include specialist hoarders support, home management, interior decor, and other home service areas.'],
   ['Can I ask about a future service?', 'Yes. Use the enquiry form for current services or future interest such as home management or interior decor.'],
-  ['How is hoarding cleaning specialist support approached?', 'The care is directed toward the person affected by hoarding, not just the items or the cleaning task. The approach is private, patient, consent-led, and non-judgemental.'],
+  ['How is hoarders specialist support approached?', 'The care is directed toward the person who hoards, not just the items or the cleaning task. The approach is private, patient, consent-led, and non-judgemental.'],
   ['Do you cover my area?', 'The service is focused on Chester and surrounding areas. Send your postcode or location and we will confirm whether support is available.'],
   ['Can family, carers, or support workers be involved?', 'Yes, where appropriate and with consent. Sensitive situations often work best when communication is clear and supportive.'],
   ['Are contact details live yet?', 'Direct contact details are still placeholders. The enquiry form is prepared for the business email once the domain and email are set up.'],

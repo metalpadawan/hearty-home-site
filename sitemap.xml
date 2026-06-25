@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://hearty-home-site.vercel.app/</loc>
+    <loc>https://heartyhome.co.uk/</loc>
   </url>
   <url>
-    <loc>https://hearty-home-site.vercel.app/about</loc>
+    <loc>https://heartyhome.co.uk/about</loc>
   </url>
   <url>
-    <loc>https://hearty-home-site.vercel.app/contact</loc>
+    <loc>https://heartyhome.co.uk/founder</loc>
   </url>
   <url>
-    <loc>https://hearty-home-site.vercel.app/privacy</loc>
+    <loc>https://heartyhome.co.uk/contact</loc>
+  </url>
+  <url>
+    <loc>https://heartyhome.co.uk/privacy</loc>
   </url>
 </urlset>

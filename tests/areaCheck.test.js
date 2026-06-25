@@ -9,7 +9,7 @@ describe('checkAreaAvailability', () => {
   it('accepts recognised local areas without external lookup', async () => {
     const fetchSpy = vi.spyOn(globalThis, 'fetch');
 
-    const result = await checkAreaAvailability('Chester', 'Domestic Cleaning');
+    const result = await checkAreaAvailability('Chester', 'Cleaning Services');
 
     expect(result.status).toBe('covered');
     expect(result.message).toContain('Chester appears to be within the current service area');
@@ -19,7 +19,7 @@ describe('checkAreaAvailability', () => {
   it('rejects fake postcodes when the postcode API cannot find them', async () => {
     vi.spyOn(globalThis, 'fetch').mockResolvedValue({ status: 404, ok: false });
 
-    const result = await checkAreaAvailability('tm3 4yu', 'Domestic Cleaning');
+    const result = await checkAreaAvailability('tm3 4yu', 'Cleaning Services');
 
     expect(result.status).toBe('error');
     expect(result.message).toContain('could not be found as a valid UK postcode');
@@ -39,10 +39,9 @@ describe('checkAreaAvailability', () => {
       }),
     });
 
-    const result = await checkAreaAvailability('CH1 2HJ', 'Domestic Cleaning');
+    const result = await checkAreaAvailability('CH1 2HJ', 'Cleaning Services');
 
     expect(result.status).toBe('covered');
     expect(result.distanceMiles).toBe(0);
   });
 });
-

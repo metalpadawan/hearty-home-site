@@ -24,7 +24,7 @@ const sections = [
     title: 'Sensitive Information',
     items: [
       'Please do not submit medical records, diagnosis details, financial information, identity documents, or highly sensitive personal information through the contact form.',
-      'For hoarding-related enquiries, only share the practical information needed to understand the space, urgency, location, and preferred contact method.',
+      'For hoarders support enquiries, only share the practical information needed to understand the space, urgency, location, and preferred contact method.',
     ],
   },
   {

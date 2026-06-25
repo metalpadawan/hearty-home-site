@@ -13,9 +13,6 @@ const filters = [
   ['All', 'all'],
   ['Cleaning', 'cleaning'],
   ['Specialist', 'specialist'],
-  ['Property', 'property'],
-  ['Events', 'event'],
-  ['Business', 'business'],
   ['Future', 'future'],
 ];
 
@@ -25,29 +22,32 @@ export default function Home() {
 
   return (
     <>
-      <section className="relative min-h-[calc(100dvh-5rem)] overflow-hidden bg-teal-950 py-16 text-cream sm:py-20 lg:py-24">
-        <HeroImageShowcase />
-        <div className="absolute inset-0 bg-gradient-to-r from-teal-950/94 via-teal-950/74 to-teal-950/28" />
-        <div className="absolute inset-0 bg-gradient-to-t from-teal-950/70 via-transparent to-teal-950/20" />
-        <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-mist to-transparent" />
-        <Container className="relative flex min-h-[calc(100dvh-13rem)] items-center">
+      <section className="relative overflow-hidden bg-teal-950 text-cream">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(213,180,106,0.18),transparent_28%),radial-gradient(circle_at_85%_45%,rgba(22,127,143,0.32),transparent_34%)]" />
+        <Container className="relative pt-6 sm:pt-8 lg:pt-10">
+          <HeroImageShowcase />
+        </Container>
+        <Container className="relative grid gap-8 py-10 sm:py-12 lg:grid-cols-[1.12fr_0.88fr] lg:items-end lg:py-16">
+          <motion.div initial={{ opacity: 0, y: 26 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}>
+            <p className="eyebrow text-gold-400">Hearty Home Services</p>
+            <h1 className="mt-4 max-w-4xl font-display text-4xl font-bold leading-[0.98] text-balance sm:text-6xl lg:text-7xl">{site.name}</h1>
+            <div className="mt-6 h-px max-w-xl bg-gradient-to-r from-gold-400 via-cream/40 to-transparent" />
+          </motion.div>
           <motion.div
-            className="max-w-2xl rounded-[2rem] border border-white/15 bg-teal-950/48 p-6 shadow-glow backdrop-blur-md sm:p-8 lg:p-10"
+            className="rounded-[1.5rem] border border-white/10 bg-cream p-5 text-teal-950 shadow-[0_20px_60px_rgba(0,0,0,0.22)] sm:p-6 lg:p-7"
             initial={{ opacity: 0, y: 26 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.45, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
           >
-            <h1 className="max-w-4xl font-display text-5xl font-bold leading-[0.95] text-balance sm:text-6xl lg:text-7xl">
-              {site.name}
-            </h1>
-            <p className="mt-5 max-w-2xl text-2xl font-semibold leading-9 text-gold-100 sm:text-3xl">
-              {site.tagline}
+            <p className="text-base leading-7 text-teal-950/78 sm:text-lg sm:leading-8">
+              Thoughtful home services with a calm, practical approach. Starting with reliable cleaning support, with room to grow into hoarders support, home management,
+              interior decor, property care, and business spaces.
             </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
               <Link className="btn-primary" to="/contact">
                 Contact Us <ArrowRight size={18} aria-hidden="true" />
               </Link>
-              <a className="btn-ghost" href="#services">
+              <a className="btn-secondary" href="#services">
                 View Services
               </a>
             </div>
@@ -68,7 +68,7 @@ export default function Home() {
               <p className="eyebrow">Services</p>
               <h2>Clear service options, so visitors know exactly what to ask for.</h2>
             </div>
-            <p>Each service card explains what the service is. Cleaning is named clearly, while hoarding support stays person-centred and discreet.</p>
+            <p>Each service card explains what the service is. Cleaning is named clearly, while support for hoarders stays person-centred and discreet.</p>
           </div>
           <div className="mt-8 flex flex-wrap gap-3" aria-label="Filter services">
             {filters.map(([label, value]) => (
@@ -128,7 +128,7 @@ export default function Home() {
               <p className="eyebrow">Trust and privacy</p>
               <h2>Built for sensitive homes, not just simple bookings.</h2>
             </div>
-            <p>The brand needs to feel safe for people who may feel embarrassed, overwhelmed, or unsure where to begin, especially in hoarding-related situations.</p>
+            <p>The brand needs to feel safe for people who may feel embarrassed, overwhelmed, or unsure where to begin, especially in situations involving hoarders.</p>
           </div>
           <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {trustPoints.map(([title, copy], index) => {
@@ -189,7 +189,7 @@ export default function Home() {
           <div>
             <p className="eyebrow text-gold-400">Ready to talk through what you need?</p>
             <h2 className="mt-3 font-display text-3xl font-bold leading-tight sm:text-4xl">Tell us what needs attention.</h2>
-            <p className="mt-4 max-w-2xl text-cream/70">Use the enquiry form for cleaning services, specialist hoarding support, or future service interest in Chester and surrounding areas.</p>
+            <p className="mt-4 max-w-2xl text-cream/70">Use the enquiry form for cleaning services, specialist hoarders support, or future service interest in Chester and surrounding areas.</p>
           </div>
           <Link className="btn-primary mt-8 lg:mt-0" to="/contact">
             Contact Us <ArrowRight size={18} aria-hidden="true" />

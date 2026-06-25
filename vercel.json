@@ -7,6 +7,11 @@
       "permanent": true
     },
     {
+      "source": "/founder.html",
+      "destination": "/founder",
+      "permanent": true
+    },
+    {
       "source": "/contact.html",
       "destination": "/contact",
       "permanent": true
@@ -21,6 +26,10 @@
     {
       "source": "/about",
       "destination": "/about.html"
+    },
+    {
+      "source": "/founder",
+      "destination": "/founder.html"
     },
     {
       "source": "/contact",
