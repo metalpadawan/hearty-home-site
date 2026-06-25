@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, BriefcaseBusiness, HeartHandshake, MessageCircle, ShieldCheck, Star } from 'lucide-react';
+import { ArrowRight, BriefcaseBusiness, HeartHandshake, MessageCircle, ShieldCheck } from 'lucide-react';
 import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import AreaChecker from '../components/AreaChecker.jsx';
@@ -29,8 +29,7 @@ export default function Home() {
         </Container>
         <Container className="relative grid gap-8 py-10 sm:py-12 lg:grid-cols-[1.12fr_0.88fr] lg:items-end lg:py-16">
           <motion.div initial={{ opacity: 0, y: 26 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}>
-            <p className="eyebrow text-gold-400">Hearty Home Services</p>
-            <h1 className="mt-4 max-w-4xl font-display text-4xl font-bold leading-[0.98] text-balance sm:text-6xl lg:text-7xl">{site.name}</h1>
+            <h1 className="max-w-4xl font-display text-4xl font-bold leading-[0.98] text-balance sm:text-6xl lg:text-7xl">{site.name}</h1>
             <div className="mt-6 h-px max-w-xl bg-gradient-to-r from-gold-400 via-cream/40 to-transparent" />
           </motion.div>
           <motion.div
@@ -40,11 +39,10 @@ export default function Home() {
             transition={{ duration: 0.45, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
           >
             <p className="text-base leading-7 text-teal-950/78 sm:text-lg sm:leading-8">
-              Thoughtful home services with a calm, practical approach. Starting with reliable cleaning support, with room to grow into hoarders support, home management,
-              interior decor, property care, and business spaces.
+              Thoughtful home services with a calm, practical approach. Starting with reliable cleaning support, with room to grow into hoarders support, home management, interior decor, property care, and business spaces.
             </p>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-              <Link className="btn-primary" to="/contact">
+              <Link className="btn-primary" to="/contact#enquiry">
                 Contact Us <ArrowRight size={18} aria-hidden="true" />
               </Link>
               <a className="btn-secondary" href="#services">
@@ -66,9 +64,9 @@ export default function Home() {
           <div className="section-head">
             <div>
               <p className="eyebrow">Services</p>
-              <h2>Clear service options, so visitors know exactly what to ask for.</h2>
+              <h2>Clear options for homes, stays, workplaces, and sensitive spaces.</h2>
             </div>
-            <p>Each service card explains what the service is. Cleaning is named clearly, while support for hoarders stays person-centred and discreet.</p>
+            <p>Choose the closest service now. If the need is sensitive or unusual, send the details and we will respond carefully.</p>
           </div>
           <div className="mt-8 flex flex-wrap gap-3" aria-label="Filter services">
             {filters.map(([label, value]) => (
@@ -128,7 +126,7 @@ export default function Home() {
               <p className="eyebrow">Trust and privacy</p>
               <h2>Built for sensitive homes, not just simple bookings.</h2>
             </div>
-            <p>The brand needs to feel safe for people who may feel embarrassed, overwhelmed, or unsure where to begin, especially in situations involving hoarders.</p>
+            <p>Privacy, consent, and clear communication matter from the first message.</p>
           </div>
           <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {trustPoints.map(([title, copy], index) => {
@@ -146,44 +144,6 @@ export default function Home() {
         </Container>
       </MotionSection>
 
-      <MotionSection className="section bg-cream">
-        <Container className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
-          <div>
-            <p className="eyebrow">Client feedback</p>
-            <h2 className="mt-3 font-display text-3xl font-bold leading-tight text-teal-950 sm:text-4xl">A polished review space, ready for real feedback.</h2>
-            <p className="lead mt-5">No fake testimonials. Once reviews are available, this section can connect to Google reviews or show approved client words.</p>
-          </div>
-          <div className="grid gap-5 md:grid-cols-2">
-            {['Review space reserved', 'Google reviews ready'].map((quote) => (
-              <article className="rounded-2xl border border-gold-500/20 bg-white p-6 shadow-soft" key={quote}>
-                <div className="flex gap-1 text-gold-500" aria-label="Review placeholder">
-                  {[...Array(5)].map((_, index) => (
-                    <Star key={index} size={17} fill="currentColor" aria-hidden="true" />
-                  ))}
-                </div>
-                <p className="mt-5 font-display text-2xl font-bold leading-tight text-teal-950">{quote}</p>
-                <p className="mt-4 text-sm leading-7 text-teal-950/60">This will be replaced with real, approved feedback once the service has live client reviews.</p>
-              </article>
-            ))}
-          </div>
-        </Container>
-      </MotionSection>
-
-      <MotionSection className="section bg-cream">
-        <Container className="rounded-[2rem] border border-white/60 bg-gradient-to-br from-white via-coral-100/40 to-teal-50 p-8 shadow-soft sm:p-10 lg:flex lg:items-center lg:justify-between">
-          <div>
-            <p className="eyebrow">Growing with purpose</p>
-            <h2 className="mt-3 font-display text-3xl font-bold leading-tight text-teal-950 sm:text-4xl">Future team and partner opportunities.</h2>
-            <p className="mt-4 max-w-3xl text-sm leading-7 text-teal-950/70">
-              As Hearty Home Services grows, there may be room for trusted cleaners, support workers, organisers, property-care assistants, and decor-focused partners.
-            </p>
-          </div>
-          <Link className="btn-primary mt-8 lg:mt-0" to="/contact">
-            Register Interest <ArrowRight size={18} aria-hidden="true" />
-          </Link>
-        </Container>
-      </MotionSection>
-
       <MotionSection className="section">
         <Container className="rounded-[2rem] bg-teal-950 p-8 text-cream shadow-glow sm:p-10 lg:flex lg:items-center lg:justify-between">
           <div>
@@ -191,7 +151,7 @@ export default function Home() {
             <h2 className="mt-3 font-display text-3xl font-bold leading-tight sm:text-4xl">Tell us what needs attention.</h2>
             <p className="mt-4 max-w-2xl text-cream/70">Use the enquiry form for cleaning services, specialist hoarders support, or future service interest in Chester and surrounding areas.</p>
           </div>
-          <Link className="btn-primary mt-8 lg:mt-0" to="/contact">
+          <Link className="btn-primary mt-8 lg:mt-0" to="/contact#enquiry">
             Contact Us <ArrowRight size={18} aria-hidden="true" />
           </Link>
         </Container>

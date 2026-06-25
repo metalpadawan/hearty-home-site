@@ -82,5 +82,4 @@ export const faqs = [
   ['How is hoarders specialist support approached?', 'The care is directed toward the person who hoards, not just the items or the cleaning task. The approach is private, patient, consent-led, and non-judgemental.'],
   ['Do you cover my area?', 'The service is focused on Chester and surrounding areas. Send your postcode or location and we will confirm whether support is available.'],
   ['Can family, carers, or support workers be involved?', 'Yes, where appropriate and with consent. Sensitive situations often work best when communication is clear and supportive.'],
-  ['Are contact details live yet?', 'Direct contact details are still placeholders. The enquiry form is prepared for the business email once the domain and email are set up.'],
 ];

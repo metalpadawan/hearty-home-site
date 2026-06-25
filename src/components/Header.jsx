@@ -88,7 +88,7 @@ export default function Header() {
           ))}
           <NavLink
             className="mt-3 inline-flex w-full items-center justify-center rounded-full bg-gold-500 px-5 py-3 text-sm font-bold text-teal-950 shadow-gold transition hover:-translate-y-0.5 hover:bg-gold-400 focus:outline-none focus:ring-2 focus:ring-teal-700 md:ml-2 md:mt-0 md:w-auto"
-            to="/contact"
+            to="/contact#enquiry"
             onClick={() => setOpen(false)}
           >
             Send Enquiry

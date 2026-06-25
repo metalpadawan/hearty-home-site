@@ -204,7 +204,14 @@ async function sendEmail(data) {
   });
 
   if (!response.ok) {
-    throw new Error('Email service rejected the message.');
+    const details = await response.json().catch(() => ({}));
+    const message = String(details.message || '');
+
+    if (message.toLowerCase().includes('domain is not verified')) {
+      throw new Error('Email sending domain is not verified in Resend yet. Verify contact.heartyhome.co.uk in Resend, then try again.');
+    }
+
+    throw new Error(message || 'Email service rejected the message.');
   }
 }
 
@@ -255,10 +262,15 @@ async function handler(req, res) {
       ? sendJson(res, 200, { message: 'Thank you. Your enquiry has been sent.' })
       : sendHtml(res, 200, 'Enquiry sent', 'Thank you. Your enquiry has been sent.');
   } catch (error) {
-    console.error('Contact form failed:', error instanceof Error ? error.message : 'Unknown error');
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+    const publicMessage = errorMessage.startsWith('Email sending domain is not verified')
+      ? errorMessage
+      : 'The enquiry service is not available right now.';
+
+    console.error('Contact form failed:', errorMessage);
     return json
-      ? sendJson(res, 500, { message: 'The enquiry service is not available right now.' })
-      : sendHtml(res, 500, 'Enquiry not sent', 'The enquiry service is not available right now.');
+      ? sendJson(res, 500, { message: publicMessage })
+      : sendHtml(res, 500, 'Enquiry not sent', publicMessage);
   }
 }
 

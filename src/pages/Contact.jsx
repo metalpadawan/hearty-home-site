@@ -1,4 +1,4 @@
-import { Instagram, Linkedin, Mail, MapPin, Phone, UserRound } from 'lucide-react';
+import { Instagram, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
 import Container from '../components/Container.jsx';
 import ContactForm from '../components/ContactForm.jsx';
 import MotionSection from '../components/MotionSection.jsx';
@@ -6,7 +6,6 @@ import { faqs, site } from '../data/site.js';
 
 export default function Contact() {
   const details = [
-    [UserRound, 'Service Enquiries', 'Tell us what support you need'],
     [Phone, 'Phone', site.phonePlaceholder],
     [Mail, 'Email', site.emailPlaceholder],
     [MapPin, 'Location', site.area],
@@ -18,9 +17,9 @@ export default function Contact() {
     <>
       <section className="page-hero">
         <Container>
-          <p className="eyebrow">Contact Hearty Home Services</p>
+          <p className="eyebrow">Contact</p>
           <h1>Have an enquiry?</h1>
-          <p className="lead">Get in touch for current services, specialist support, or interest in future service areas. Please include your service type, location, and any important details.</p>
+          <p className="lead">Tell us the service, location, timing, and anything important to know before we respond.</p>
         </Container>
       </section>
 
@@ -53,12 +52,9 @@ export default function Contact() {
             </div>
           </aside>
 
-          <section className="rounded-[2rem] bg-white p-6 shadow-soft sm:p-8" id="enquiry">
+          <section className="scroll-mt-32 rounded-[2rem] bg-white p-6 shadow-soft sm:p-8" id="enquiry">
             <p className="eyebrow">Send enquiry</p>
-            <h2 className="mt-3 font-display text-3xl font-bold leading-tight text-teal-950 sm:text-4xl">Tell us what support you need.</h2>
-            <p className="mt-4 text-sm leading-7 text-teal-950/60">
-              Direct contact details are coming soon. For now, this form is ready for the business email once it is added in Vercel.
-            </p>
+            <h2 className="mt-3 font-display text-3xl font-bold leading-tight text-teal-950 sm:text-4xl">Send the details.</h2>
             <div className="mt-8">
               <ContactForm />
             </div>
@@ -73,7 +69,7 @@ export default function Contact() {
               <p className="eyebrow">Questions</p>
               <h2>Helpful answers before you send an enquiry.</h2>
             </div>
-            <p>These answers cover services, hoarders support, area coverage, family or carer involvement, and contact placeholders.</p>
+            <p>Quick answers about services, areas, and sensitive support.</p>
           </div>
           <div className="mt-8 grid gap-4 lg:grid-cols-2">
             {faqs.map(([question, answer]) => (

@@ -16,6 +16,8 @@ const initialForm = {
 
 const turnstileSiteKey = import.meta.env.VITE_TURNSTILE_SITE_KEY;
 const REQUEST_TIMEOUT_MS = 12_000;
+const API_UNREACHABLE_MESSAGE =
+  'The enquiry service could not be reached. If you are testing locally, run the project through the dev server and keep it open. If this is the live site, check the Vercel contact function.';
 
 function validateForm(values) {
   const errors = {};
@@ -27,6 +29,12 @@ function validateForm(values) {
   if (!values.message.trim()) errors.message = 'Please include a short message.';
 
   return errors;
+}
+
+function getSubmitErrorMessage(error) {
+  if (error.name === 'AbortError') return 'The enquiry request timed out. Please try again.';
+  if (error instanceof TypeError || /failed to fetch|networkerror/i.test(error.message || '')) return API_UNREACHABLE_MESSAGE;
+  return error.message || 'The enquiry service is not available right now.';
 }
 
 export default function ContactForm() {
@@ -103,7 +111,7 @@ export default function ContactForm() {
       setErrors({});
       window.turnstile?.reset();
     } catch (error) {
-      setStatus({ type: 'error', message: error.name === 'AbortError' ? 'The enquiry request timed out. Please try again.' : error.message || 'The enquiry service is not available right now.' });
+      setStatus({ type: 'error', message: getSubmitErrorMessage(error) });
     } finally {
       setSubmitting(false);
     }

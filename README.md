@@ -30,13 +30,7 @@ npm run dev
 
 5. Open the local URL shown in the terminal, usually `http://localhost:5173`.
 
-The plain Vite dev server is best for layout and animation work. To test the Vercel contact and area-check APIs locally, use:
-
-```bash
-npm run dev:vercel
-```
-
-That starts the frontend and `/api/contact` together through Vercel's local runtime.
+The local Vite dev server also serves `/api/contact` and `/api/area-check`, so the area checker and enquiry form can be tested locally. Use `npm run dev:vercel` only when you specifically want to test through Vercel's local runtime.
 
 ## Build
 

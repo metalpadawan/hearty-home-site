@@ -133,4 +133,26 @@ describe('/api/contact', () => {
     expect(response.body.message).toBe('Thank you. Your enquiry has been sent.');
     expect(globalThis.fetch).toHaveBeenCalledWith('https://api.resend.com/emails', expect.any(Object));
   });
+
+  it('explains when the Resend sending domain is not verified', async () => {
+    process.env.RESEND_API_KEY = 'test-key';
+    process.env.CONTACT_TO_EMAIL = 'info@heartyhome.co.uk';
+    process.env.CONTACT_FROM_EMAIL = 'Hearty Home Services <noreply@contact.heartyhome.co.uk>';
+
+    vi.spyOn(globalThis, 'fetch').mockResolvedValue({
+      ok: false,
+      json: async () => ({
+        message: 'The contact.heartyhome.co.uk domain is not verified. Please, add and verify your domain on https://resend.com/domains',
+      }),
+    });
+
+    const response = await runHandler(contactHandler, {
+      method: 'POST',
+      body: validBody,
+      ip: '127.10.1.5',
+    });
+
+    expect(response.statusCode).toBe(500);
+    expect(response.body.message).toBe('Email sending domain is not verified in Resend yet. Verify contact.heartyhome.co.uk in Resend, then try again.');
+  });
 });
