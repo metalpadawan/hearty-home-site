@@ -20,7 +20,7 @@ Vercel serverless function
 Resend
   |
   v
-Business inbox
+Zoho business inbox
 
 Visitor browser
   |
@@ -49,7 +49,8 @@ Postcodes.io
 ## External Services
 
 - Vercel: hosting and serverless functions.
-- Resend: enquiry email delivery.
+- Resend: transactional delivery for website enquiry emails.
+- Zoho Mail: business mailbox for `info@heartyhome.co.uk`.
 - Cloudflare Turnstile: optional spam protection.
 - Postcodes.io: postcode lookup for the area checker.
 
@@ -57,12 +58,11 @@ Postcodes.io
 
 - The site does not have user accounts.
 - The site does not store enquiries in a database.
-- Enquiries are sent by email once Resend is configured.
+- Enquiries are sent through Resend and received in the Zoho business mailbox.
 - Area checker lookups are used to produce an immediate availability message.
 
 ## Main Risks
 
-- Production email will not send until Resend and Vercel environment variables are configured.
+- Production enquiry delivery depends on both Resend sending configuration and Zoho mailbox DNS being valid.
 - Current rate limiting is in-memory and should be moved to a shared store if spam increases.
 - Privacy, retention, and deletion processes depend on the final business workflow.
-

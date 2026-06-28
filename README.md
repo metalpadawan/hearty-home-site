@@ -21,7 +21,7 @@ React, Tailwind CSS, and Framer Motion site for Hearty Home Services, a growing 
 npm install
 ```
 
-3. Copy `.env.example` to `.env.local` and fill in the real email values when available.
+3. Copy `.env.example` to `.env.local` and fill in the email delivery values when needed.
 4. Start the dev server:
 
 ```bash
@@ -84,6 +84,8 @@ Set these environment variables in Vercel before enabling live enquiries:
 
 The frontend posts enquiries to `/api/contact`, which sends the email through Resend.
 
+Zoho Mail is used for the business mailbox at `info@heartyhome.co.uk`. Resend is still used only as the transactional sender for website form submissions, delivering enquiries into the Zoho mailbox.
+
 ## Launch And Security Checklist
 
 1. Commit the project before deploying from GitHub:
@@ -97,22 +99,29 @@ git push
 2. Add the Resend email settings in Vercel:
 
 - `RESEND_API_KEY`
-- `CONTACT_TO_EMAIL`
+- `CONTACT_TO_EMAIL=info@heartyhome.co.uk`
 - `CONTACT_FROM_EMAIL`
 
-3. Add Cloudflare Turnstile before public launch:
+3. Configure Zoho Mail for the root domain:
+
+- Add Zoho's MX records for `heartyhome.co.uk` in the active DNS provider.
+- Add Zoho SPF and DKIM records.
+- Keep the Resend records on the separate sending subdomain `contact.heartyhome.co.uk`.
+- Test that `info@heartyhome.co.uk` receives email in Zoho before relying on website enquiries.
+
+4. Add Cloudflare Turnstile before public launch:
 
 - Create a Turnstile widget in Cloudflare.
 - Add the public site key as `VITE_TURNSTILE_SITE_KEY` in Vercel.
 - Add the secret key as `TURNSTILE_SECRET_KEY` in Vercel.
 - Redeploy after adding the keys.
 
-4. Consider shared rate limiting if the form gets spammed:
+5. Consider shared rate limiting if the form gets spammed:
 
 - The current API has in-memory rate limiting, honeypot protection, origin checks, and optional Turnstile.
 - For stronger production rate limiting across all serverless instances, add a shared store such as Upstash Redis or Vercel KV.
 
-5. Keep the current CSP unless the animation system changes:
+6. Keep the current CSP unless the animation system changes:
 
 - Framer Motion needs inline style attributes for transform animations.
 - The CSP still blocks inline scripts and frames the site with `frame-ancestors 'none'`.

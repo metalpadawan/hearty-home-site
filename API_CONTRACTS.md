@@ -4,7 +4,7 @@ Last updated: 19 June 2026
 
 ## `POST /api/contact`
 
-Sends a service enquiry to the configured business email address through Resend.
+Sends a service enquiry through Resend to the configured business mailbox, currently `info@heartyhome.co.uk` in Zoho Mail.
 
 ### Request Headers
 
@@ -94,4 +94,3 @@ Checks whether a postcode, postcode district, or recognised local area appears t
 - `405`: method not allowed
 - `429`: too many checks
 - `503`: postcode checker unavailable
-

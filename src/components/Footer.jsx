@@ -21,7 +21,9 @@ export default function Footer() {
         <div>
           <strong className="text-sm uppercase tracking-[0.22em] text-gold-400">Contact</strong>
           <span className="mt-3 block text-sm text-cream/75">{site.phonePlaceholder}</span>
-          <span className="mt-2 block text-sm text-cream/75">{site.emailPlaceholder}</span>
+          <a className="mt-2 block text-sm font-semibold text-cream/75 underline decoration-gold-400/50 underline-offset-4 transition hover:text-gold-100" href={site.emailHref}>
+            {site.email}
+          </a>
         </div>
         <div>
           <strong className="text-sm uppercase tracking-[0.22em] text-gold-400">Social</strong>

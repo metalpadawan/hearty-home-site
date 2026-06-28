@@ -31,7 +31,8 @@ const sections = [
     title: 'Third-Party Processors',
     items: [
       'Vercel hosts the website and serverless API functions.',
-      'Resend sends contact form emails once the business email service is configured.',
+      'Resend sends contact form emails to the business mailbox.',
+      'Zoho Mail hosts the business mailbox used to receive and respond to enquiries.',
       'Cloudflare Turnstile may be used for spam protection once enabled.',
       'Postcodes.io is used to validate UK postcodes for the area checker.',
     ],
@@ -41,7 +42,7 @@ const sections = [
     items: [
       'General enquiries should only be kept for as long as they are needed for follow-up, business records, or legal reasons.',
       'Spam, irrelevant, or accidental submissions should be deleted as soon as practical.',
-      'People can request deletion of their enquiry information through the business contact email once it is live.',
+      `People can request deletion of their enquiry information by emailing ${site.email}.`,
     ],
   },
 ];
@@ -54,7 +55,7 @@ export default function Privacy() {
           <p className="eyebrow">Privacy</p>
           <h1>How enquiry information is handled.</h1>
           <p className="lead">
-            This page explains the practical privacy approach for {site.name}. It should be reviewed again once the final business email, domain, and service workflow are confirmed.
+            This page explains the practical privacy approach for {site.name}. It should be reviewed again whenever the email provider, domain, or service workflow changes.
           </p>
         </Container>
       </section>
@@ -79,7 +80,7 @@ export default function Privacy() {
           <p className="eyebrow text-gold-400">Important</p>
           <h2 className="mt-3 font-display text-3xl font-bold leading-tight sm:text-4xl">This is a starter privacy notice.</h2>
           <p className="mt-4 max-w-3xl text-sm leading-7 text-cream/70">
-            Before public launch, replace placeholder contact details with the real business email and confirm the final retention period, deletion workflow, and service providers.
+            Before public launch, confirm the final retention period, deletion workflow, and any future service providers such as a CRM, booking tool, or client database.
           </p>
         </Container>
       </MotionSection>

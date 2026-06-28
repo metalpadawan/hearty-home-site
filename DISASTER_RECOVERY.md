@@ -31,8 +31,9 @@ npm run build
    - `CONTACT_FROM_EMAIL`
 2. Check Resend domain verification.
 3. Check Resend delivery logs.
-4. Submit a test enquiry.
-5. Confirm the business inbox receives the email.
+4. Check Zoho Mail MX, SPF, DKIM, and mailbox status for `info@heartyhome.co.uk`.
+5. Submit a test enquiry.
+6. Confirm the Zoho business inbox receives the email.
 
 ## If Spam Increases
 
@@ -53,6 +54,5 @@ npm run build
 
 - Source code is backed up through GitHub.
 - Deployments are retained in Vercel.
-- Enquiries will live in the configured business inbox once email is live.
+- Enquiries will live in the Zoho business inbox once email is live.
 - If a CRM, database, or booking system is added later, create database backups and restore tests.
-

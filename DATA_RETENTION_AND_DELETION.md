@@ -2,7 +2,7 @@
 
 Last updated: 19 June 2026
 
-This is a starter policy. It must be reviewed once the final business email, domain, and client workflow are confirmed.
+This is a starter policy. It must be reviewed whenever the email provider, domain, or client workflow changes.
 
 ## Data Collected
 
@@ -12,7 +12,7 @@ This is a starter policy. It must be reviewed once the final business email, dom
 - Service interest
 - Location
 - Message content
-- Technical logs from Vercel, Resend, and optional Cloudflare Turnstile
+- Technical logs from Vercel, Resend, Zoho Mail, and optional Cloudflare Turnstile
 
 ## Sensitive Information
 
@@ -35,20 +35,22 @@ For hoarding-related enquiries, only practical details should be requested, such
 
 ## Deletion Requests
 
-When the business email is live, visitors should be able to request deletion by contacting the business email address.
+Visitors can request deletion by contacting the business email address:
+
+```text
+info@heartyhome.co.uk
+```
 
 The business owner should check:
 
 - business inbox
 - Resend logs
+- Zoho Mail logs and mailbox folders
 - Vercel logs
 - any future CRM, spreadsheet, or booking system
 - backups where practical
 
 ## Still Needed
 
-- Final business email.
 - Final retention periods.
-- Final privacy contact.
 - Confirmation of any CRM, spreadsheet, booking system, or client database.
-
