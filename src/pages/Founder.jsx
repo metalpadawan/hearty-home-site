@@ -46,7 +46,7 @@ export default function Founder() {
           <div className="relative mx-auto w-full max-w-48 overflow-hidden rounded-[1.5rem] border border-white/70 bg-white p-2 shadow-soft sm:max-w-52 lg:order-first">
             <img
               src="/assets/images/founder-portrait.jpeg"
-              alt="Founder of Hearty Home Services"
+              alt={`${site.founderName}, founder of Hearty Home Services`}
               className="aspect-[4/5] w-full rounded-[1.1rem] object-cover object-top"
               loading="eager"
               decoding="async"
@@ -54,6 +54,7 @@ export default function Founder() {
           </div>
           <div>
             <p className="eyebrow">Founder</p>
+            <p className="mb-3 font-display text-2xl font-bold text-gold-100">{site.founderName}</p>
             <h1>Built from support-work experience and practical care.</h1>
             <p className="lead">
               Hearty Home Services is shaped by the belief that homes are personal. The work is not only about making a space clean; it is about communication, trust,
@@ -77,7 +78,7 @@ export default function Founder() {
             <p className="eyebrow">Approach</p>
             <h2 className="mt-3 font-display text-3xl font-bold leading-tight text-teal-950 sm:text-4xl">Care for the person, then care for the space.</h2>
             <p className="lead mt-5">
-              The founder's background in support work informs the tone of the brand: listen first, communicate clearly, respect consent, and keep the person at the
+              {site.founderName}'s background in support work informs the tone of the brand: listen first, communicate clearly, respect consent, and keep the person at the
               centre of every practical decision.
             </p>
             <p className="mt-4 text-sm leading-7 text-teal-950/70">

@@ -6,7 +6,7 @@ import { faqs, site } from '../data/site.js';
 
 export default function Contact() {
   const details = [
-    [Phone, 'Phone', site.phonePlaceholder],
+    [Phone, 'Phone', site.phone, site.phoneHref],
     [Mail, 'Email', site.email, site.emailHref],
     [MapPin, 'Location', site.area],
     [Instagram, 'Instagram', site.instagramHandle, site.instagramUrl],
