@@ -5,9 +5,9 @@
     "build": "vite build",
     "preview": "vite preview --host 0.0.0.0",
     "lint": "eslint .",
-    "test": "vitest",
-    "test:run": "vitest run",
-    "test:coverage": "vitest run --coverage",
+    "test": "vitest --pool=threads",
+    "test:run": "vitest run --pool=threads",
+    "test:coverage": "vitest run --coverage --pool=threads",
     "test:e2e": "playwright test"
   },
   "dependencies": {
