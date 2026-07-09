@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, BriefcaseBusiness, HeartHandshake, MessageCircle, ShieldCheck } from 'lucide-react';
+import { ArrowRight, BriefcaseBusiness, HeartHandshake, MessageCircle, PoundSterling, ShieldCheck } from 'lucide-react';
 import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import AreaChecker from '../components/AreaChecker.jsx';
@@ -56,6 +56,30 @@ export default function Home() {
       <MotionSection className="bg-mist py-8 sm:py-10" delay={0.03}>
         <Container>
           <AreaChecker />
+        </Container>
+      </MotionSection>
+
+      <MotionSection className="bg-mist pb-10 sm:pb-14" delay={0.04}>
+        <Container>
+          <div className="grid gap-5 rounded-[2rem] border border-teal-900/10 bg-white p-6 shadow-soft sm:p-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-center">
+            <div className="flex items-center gap-4">
+              <span className="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-gold-100 text-teal-950">
+                <PoundSterling size={28} aria-hidden="true" />
+              </span>
+              <div>
+                <p className="eyebrow">Flexible pricing</p>
+                <h2 className="mt-2 font-display text-3xl font-bold leading-tight text-teal-950 sm:text-4xl">Built around the work, not a one-size quote.</h2>
+              </div>
+            </div>
+            <div className="space-y-4 text-base leading-8 text-teal-950/72">
+              <p>
+                Some providers advertise basic cleaning from around <strong className="font-extrabold text-teal-950">£19.99</strong>. At Hearty Home Services, pricing is shaped around the space, the level of support needed, and the budget you have in mind.
+              </p>
+              <p>
+                Share what you need and we will talk through clear, practical options before any work begins.
+              </p>
+            </div>
+          </div>
         </Container>
       </MotionSection>
 
