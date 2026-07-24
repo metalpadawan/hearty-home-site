@@ -73,7 +73,7 @@ export default function Home() {
             </div>
             <div className="space-y-4 text-base leading-8 text-teal-950/72">
               <p>
-                At Hearty Home Services, pricing is shaped around the space, the level of support needed, and the budget you have in mind.
+                At Hearty Home Services, prices can start from as low as £14.99, with pricing shaped around the space, the level of support needed, and the budget you have in mind.
               </p>
               <p>
                 Share what you need and we will talk through clear, practical options before any work begins.
