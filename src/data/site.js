@@ -78,6 +78,12 @@ export const trustPoints = [
   ['Local and accountable', 'Built for Chester and surrounding areas with direct, personal communication.'],
 ];
 
+export const reviewHighlights = [
+  ['Google reviews coming soon', 'Client feedback will be shown here once the Google Business Profile starts receiving public reviews.'],
+  ['Real client experiences', 'Reviews will help future clients understand the care, communication, and standard of support provided.'],
+  ['Leave a review on Google', 'A direct Google review link can be connected here once the business review link is ready.'],
+];
+
 export const faqs = [
   ['What cleaning services can I ask for?', 'You can ask about domestic cleaning, Airbnb or short-stay turnovers, company cleaning, parties and events, end of tenancy cleaning, and cleaning add-ons.'],
   ['Is Hearty Home only a cleaning service?', 'Cleaning is the starting service, but the brand is being built to include specialist hoarders support, home management, interior decor, and other home service areas.'],

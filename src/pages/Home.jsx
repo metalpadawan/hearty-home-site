@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, BriefcaseBusiness, HeartHandshake, MessageCircle, PoundSterling, ShieldCheck } from 'lucide-react';
+import { ArrowRight, BriefcaseBusiness, HeartHandshake, MessageCircle, PoundSterling, Quote, ShieldCheck, Star } from 'lucide-react';
 import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import AreaChecker from '../components/AreaChecker.jsx';
@@ -7,7 +7,7 @@ import Container from '../components/Container.jsx';
 import HeroImageShowcase from '../components/HeroImageShowcase.jsx';
 import MotionSection from '../components/MotionSection.jsx';
 import ServiceCard from '../components/ServiceCard.jsx';
-import { howItWorks, services, site, trustPoints } from '../data/site.js';
+import { howItWorks, reviewHighlights, services, site, trustPoints } from '../data/site.js';
 
 const filters = [
   ['All', 'all'],
@@ -164,6 +164,50 @@ export default function Home() {
                 </div>
               );
             })}
+          </div>
+        </Container>
+      </MotionSection>
+
+      <MotionSection className="section bg-cream" id="reviews">
+        <Container>
+          <div className="section-head">
+            <div>
+              <p className="eyebrow">Google reviews</p>
+              <h2>Client feedback will be connected through Google.</h2>
+            </div>
+            <p>As the business grows, public Google reviews will sit here so visitors can see real feedback before getting in touch.</p>
+          </div>
+          <div className="mt-8 grid gap-5 lg:grid-cols-[0.8fr_1.2fr] lg:items-stretch">
+            <div className="rounded-[2rem] border border-teal-900/10 bg-teal-950 p-6 text-cream shadow-glow sm:p-8">
+              <div className="flex items-center gap-2 text-gold-400" aria-label="Google reviews rating area">
+                {[1, 2, 3, 4, 5].map((star) => (
+                  <Star key={star} size={22} fill="currentColor" aria-hidden="true" />
+                ))}
+              </div>
+              <h3 className="mt-6 font-display text-3xl font-bold leading-tight sm:text-4xl">Reviews coming soon</h3>
+              <p className="mt-4 text-sm leading-7 text-cream/72">
+                Hearty Home Services will use Google reviews for public client feedback. Once the Google Business Profile review link is ready, this section can link directly to it.
+              </p>
+              <div className="mt-6 rounded-2xl border border-white/10 bg-white/10 p-4 text-sm leading-6 text-cream/78">
+                Google rating and review count will appear here after reviews are available.
+              </div>
+            </div>
+            <div className="grid gap-5 md:grid-cols-3 lg:grid-cols-1">
+              {reviewHighlights.map(([title, copy], index) => (
+                <motion.article
+                  className="rounded-2xl border border-teal-900/10 bg-white p-6 shadow-soft"
+                  key={title}
+                  initial={{ opacity: 0, y: 18 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.25 }}
+                  transition={{ duration: 0.4, delay: index * 0.05 }}
+                >
+                  <Quote className="text-coral-500" size={26} aria-hidden="true" />
+                  <h3 className="mt-4 text-lg font-bold text-teal-950">{title}</h3>
+                  <p className="mt-2 text-sm leading-7 text-teal-950/70">{copy}</p>
+                </motion.article>
+              ))}
+            </div>
           </div>
         </Container>
       </MotionSection>
