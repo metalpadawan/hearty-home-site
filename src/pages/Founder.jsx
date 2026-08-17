@@ -45,7 +45,7 @@ export default function Founder() {
         <Container className="grid items-center gap-10 lg:grid-cols-[0.78fr_1.22fr]">
           <div className="relative mx-auto w-full max-w-48 overflow-hidden rounded-[1.5rem] border border-white/70 bg-white p-2 shadow-soft sm:max-w-52 lg:order-first">
             <img
-              src="/assets/images/founder-portrait.jpeg"
+              // src="/assets/images/founder-portrait.jpeg"
               alt={`${site.founderName}, founder of Hearty Home Services`}
               className="aspect-[4/5] w-full rounded-[1.1rem] object-cover object-top"
               loading="eager"
